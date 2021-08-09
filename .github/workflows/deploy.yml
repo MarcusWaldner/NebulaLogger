@@ -77,9 +77,10 @@ jobs:
 
               # Upload code coverage data for LWC
             - name: 'Upload code coverage for LWC to Codecov.io'
-              uses: codecov/codecov-action@v1
+              uses: codecov/codecov-action@v2
               with:
                   token: ${{ secrets.CODECOV_TOKEN }}
+                  verbose: true
                   flags: LWC
 
     scratch-org-tests:
@@ -146,9 +147,11 @@ jobs:
 
               # Upload code coverage data for Apex
             - name: 'Upload code coverage for Apex to Codecov.io'
-              uses: codecov/codecov-action@v1
+              uses: codecov/codecov-action@v2
               with:
                   token: ${{ secrets.CODECOV_TOKEN }}
+                  files: ./tests/apex/test-result-codecoverage.json
+                  verbose: true
                   flags: Apex
 
             - name: 'Delete Scratch Org'
